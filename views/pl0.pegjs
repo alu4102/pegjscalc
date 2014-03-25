@@ -29,7 +29,7 @@ st     = i:ID ASSIGN e:exp
             }; 
           }
            
-        /IF e:exp THEN st
+       /IF e:exp THEN st:st ELSE sf:st
           {
             return { 
               type: 'IF',
@@ -37,7 +37,7 @@ st     = i:ID ASSIGN e:exp
               statement: s
             };
           }
-        /IF e:exp THEN st:st ELSE sf:st
+       /IF e:exp THEN st
           {
               return { 
                 type: 'IFELSE',
